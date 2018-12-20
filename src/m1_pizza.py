@@ -32,7 +32,7 @@ def main():
 
     # run_test_generate_points_on_circle()
     # run_test_draw_points_on_circle()
-    run_test_pizza()
+    # run_test_pizza()
     # run_test_polygon()
     # run_test_fancy_polygon()
 
@@ -243,7 +243,7 @@ def draw_points_on_circle(window, circle, number_of_points, color):
     circle.attach_to(window)
     points = generate_points_on_circle(circle, number_of_points)
     for k in range(number_of_points):
-        c = rg.circle(points[k], 10)
+        c = rg.Circle(points[k], 10)
         c.fill_color = color
         c.attach_to(window)
         points[k].attach_to(window)
@@ -296,6 +296,13 @@ def run_test_pizza():
     #     -- a large number of thin black lines
     #     -- on a yellow-filled circle.
     # -------------------------------------------------------------------------
+    # Test 4:
+    title = 'PIZZA test 1:  5 slices, thin (thickness=3) blue lines.'
+    window = rg.RoseWindow(400, 400, title)
+    circle = rg.Circle(rg.Point(200, 200), 150)
+    circle.outline_thickness = 3
+    pizza(window, circle, 5, 'blue', 3)
+    window.close_on_mouse_click()
 
 
 def pizza(window, circle, number_of_slices, color, thickness):
